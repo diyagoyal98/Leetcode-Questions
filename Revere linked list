@@ -1,0 +1,35 @@
+void reverse_list(ListNode *&head,ListNode *curr,ListNode *prev)
+    {
+        if(curr==NULL)
+        {
+            head=prev;
+            return ;
+        }   
+        ListNode *forward=curr->next;
+        reverse_list(head,forward,curr);
+        curr->next=prev;
+    }
+    ListNode* reverseList(ListNode* head) 
+    {    
+        /*if(head==NULL || head->next==NULL)
+            return head;
+        ListNode *prev=NULL;
+        ListNode *curr=head;
+        ListNode *forward=NULL;
+        
+        while(curr!=NULL)
+        {
+            forward=curr->next;
+            curr->next=prev;
+            prev=curr;
+            curr=forward;
+        }
+        return prev;*/
+        
+        /*if (head==NULL ||head->next==NULL)
+            return head;*/
+        ListNode *prev=NULL;
+        ListNode *curr=head;
+        reverse_list(head,curr,prev);
+        return head;
+    }
