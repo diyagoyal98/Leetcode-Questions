@@ -1,6 +1,5 @@
 class Solution {
 public:
-    
     vector<int> topKFrequent(vector<int>& nums, int k) 
     {
         unordered_map<int,int>mp;
@@ -8,10 +7,11 @@ public:
         {
             mp[nums[i]]++;
         }
+
         priority_queue<pair<int,int>>pq;
-        for(auto it=mp.begin();it!=mp.end();it++)
+        for(auto a=mp.begin();a!=mp.end();a++)
         {
-            pq.push({it->second,it->first});
+            pq.push({a->second,a->first});
         }
         vector<int>ans;
         while(k--)
